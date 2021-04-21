@@ -12,6 +12,7 @@ public class StudentIndicatedToClassRoomListener extends DomainEventListener {
 				"\n===\n [StudentIndicatedToClassRoomListener-%s]:: Enviando email para o estudante...", evt.when()));
 
 		try {
+			// simulating business logic.
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block

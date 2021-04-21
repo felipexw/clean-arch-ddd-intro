@@ -1,14 +1,16 @@
 package com.github.felpexw.academic.infrastructure.repository;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import com.github.felpexw.academic.domain.model.Student;
 import com.github.felpexw.academic.domain.repository.ClassRoomRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class ClassRoomRepositoryInMemory implements ClassRoomRepository {
 
-	final Map<String, Student> students = new HashMap<>();
+	private final Map<String, Student> students;
 
 	@Override
 	public void registerStudent(Student student) {

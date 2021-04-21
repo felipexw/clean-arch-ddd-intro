@@ -1,6 +1,6 @@
 package com.github.felpexw.email.comand;
 
-public class SendEmailToStudentIndicated {
+public class SendEmailToStudentIndicatedCommand {
 
 	public void sendEmail(String cpf) {
 		System.out.println("Enviando email para o aluno indicado realizar a matrícula");

@@ -15,14 +15,6 @@ public class IndicateStudentToClassRoomCommand {
 
 	public void indicateStudent(Student student) {
 		System.out.println(String.format("\n===\n [IndicateStudentToClassRoomCommand]::Indicando aluno..."));
-
-		try {
-			Thread.sleep(1500);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
 		repository.indicate(student);
 		publisher.publish(new StudentIndicatedToClassRoomEvent(student.getCpf().getNumber()));
 	}

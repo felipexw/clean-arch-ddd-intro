@@ -2,10 +2,8 @@ package com.github.felpexw.academic.domain.repository;
 
 import com.github.felpexw.academic.domain.model.Student;
 
-public interface StudentIndicationRepository {
+public interface ProfessorNotifyerRepository {
 
-	void indicate(Student student);
-
-	Boolean itWasIndicated(String cpf);
+	void notifyProfessor(Student student);
 
 }

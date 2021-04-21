@@ -16,7 +16,8 @@ public class StudentRegisteredToClassRoomEventListener extends DomainEventListen
 	private final DomainEventPublisher publisher;
 
 	@Override
-	public void reactTo(DomainEvent evt) {
+	public void reactTo(DomainEvent evt)
+	{
 		System.out.println(String.format("\n===\n [StudentRegisteredToClassRoomEventListener:%s]:: %s", evt.when(),
 				evt.compileInfo()));
 

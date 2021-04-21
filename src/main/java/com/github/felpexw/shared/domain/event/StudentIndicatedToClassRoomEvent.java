@@ -5,9 +5,11 @@ import java.util.Map;
 import com.github.felpexw.shared.domain.common.DomainEvent;
 import com.github.felpexw.shared.domain.common.DomainEventType;
 
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@EqualsAndHashCode(of = "cpf", callSuper = false)
 public class StudentIndicatedToClassRoomEvent implements DomainEvent {
 
 	private final String cpf;

@@ -8,7 +8,9 @@ import com.github.felpexw.academic.domain.listener.StudentRegisteredToClassRoomE
 import com.github.felpexw.academic.domain.model.CPF;
 import com.github.felpexw.academic.domain.model.Student;
 import com.github.felpexw.academic.domain.repository.ClassRoomRepository;
-import com.github.felpexw.academic.infrastructure.ClassRoomRepositoryInMemory;
+import com.github.felpexw.academic.domain.repository.StudentIndicationRepository;
+import com.github.felpexw.academic.infrastructure.repository.ClassRoomRepositoryInMemory;
+import com.github.felpexw.academic.infrastructure.repository.StudentIndicationRepositoryInMemory;
 import com.github.felpexw.gamification.domain.listener.GamificationStudentIndicatedToClassRoomListener;
 import com.github.felpexw.shared.domain.common.DomainEventPublisher;
 import com.github.felpexw.shared.domain.listener.StudentIndicatedToClassRoomListener;
@@ -18,19 +20,24 @@ public class MainApplicationCli {
 	public static void main(String[] args) {
 		final Scanner in = new Scanner(System.in);
 
+		final StudentIndicationRepository indicationRepository = new StudentIndicationRepositoryInMemory();
 		final DomainEventPublisher publisher = new DomainEventPublisher();
-		publisher.addEventListener(new StudentRegisteredToClassRoomEventListener());
+		publisher.addEventListener(new StudentRegisteredToClassRoomEventListener(indicationRepository, publisher));
 		publisher.addEventListener(new StudentIndicatedToClassRoomListener());
 		publisher.addEventListener(new GamificationStudentIndicatedToClassRoomListener());
 
+		// student indication
+		final Student student = new Student(new CPF("060.116.339-21"), "Juvenal Antena");
+		final IndicateStudentToClassRoomCommand indicateStudent = new IndicateStudentToClassRoomCommand(publisher,
+				indicationRepository);
+		indicateStudent.indicateStudent(student);
+		indicateStudent.indicateStudent(new Student(new CPF("111.222.333-21"), null));
+
+		// student registration to class room
 		final ClassRoomRepository classRoomRepository = new ClassRoomRepositoryInMemory();
 		final RegisterStudentToClassCommand registerStudent = new RegisterStudentToClassCommand(publisher,
 				classRoomRepository);
-		registerStudent.registerStudentToClassRoom(new Student(new CPF("060.116.339-77"), "Juvenal Antena"));
-
-		final IndicateStudentToClassRoomCommand indicateStudent = new IndicateStudentToClassRoomCommand(publisher,
-				new CPF("060.116.339-77"));
-		indicateStudent.indicateStudent();
+		registerStudent.registerStudentToClassRoom(student);
 
 		in.close();
 	}

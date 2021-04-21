@@ -8,7 +8,8 @@ public class StudentIndicatedToClassRoomListener extends DomainEventListener {
 
 	@Override
 	public void reactTo(DomainEvent evt) {
-		System.out.println("Enviando email para o estudante...");
+		System.out.println(String.format(
+				"\n===\n [StudentIndicatedToClassRoomListener-%s]:: Enviando email para o estudante...", evt.when()));
 
 		try {
 			Thread.sleep(1500);

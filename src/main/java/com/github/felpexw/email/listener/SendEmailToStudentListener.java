@@ -8,7 +8,7 @@ public class SendEmailToStudentListener extends DomainEventListener {
 
 	@Override
 	public void reactTo(DomainEvent evt) {
-		System.out.println("Enviando email ....");
+		System.out.println("\n===\n SendEmailToStudentListener:: Enviando email ....");
 
 		try {
 			Thread.sleep(1250);

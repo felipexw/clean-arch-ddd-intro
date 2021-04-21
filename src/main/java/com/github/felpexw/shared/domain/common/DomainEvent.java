@@ -1,15 +1,16 @@
 package com.github.felpexw.shared.domain.common;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public interface DomainEvent {
 
-	Map<String, String> getInfo();
+	Map<String, String> info();
 
 	default String compileInfo() {
-		final Map<String, String> info = getInfo();
+		final Map<String, String> info = info();
 
 		return String.join(": ", info.keySet()//
 				.stream()//
@@ -21,7 +22,7 @@ public interface DomainEvent {
 
 	DomainEventType eventType();
 
-	default LocalDateTime when() {
-		return LocalDateTime.now();
+	default String when() {
+		return DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").format(LocalDateTime.now());
 	}
 }

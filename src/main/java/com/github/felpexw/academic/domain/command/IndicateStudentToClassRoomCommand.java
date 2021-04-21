@@ -1,6 +1,7 @@
 package com.github.felpexw.academic.domain.command;
 
-import com.github.felpexw.academic.domain.model.CPF;
+import com.github.felpexw.academic.domain.model.Student;
+import com.github.felpexw.academic.domain.repository.StudentIndicationRepository;
 import com.github.felpexw.shared.domain.common.DomainEventPublisher;
 import com.github.felpexw.shared.domain.event.StudentIndicatedToClassRoomEvent;
 
@@ -10,10 +11,10 @@ import lombok.RequiredArgsConstructor;
 public class IndicateStudentToClassRoomCommand {
 
 	private final DomainEventPublisher publisher;
-	private final CPF cpf;
+	private final StudentIndicationRepository repository;;
 
-	public void indicateStudent() {
-		System.out.println("Indicando aluno...");
+	public void indicateStudent(Student student) {
+		System.out.println(String.format("\n===\n [IndicateStudentToClassRoomCommand]::Indicando aluno..."));
 
 		try {
 			Thread.sleep(1500);
@@ -22,6 +23,7 @@ public class IndicateStudentToClassRoomCommand {
 			e.printStackTrace();
 		}
 
-		publisher.publish(new StudentIndicatedToClassRoomEvent(cpf.getNumber()));
+		repository.indicate(student);
+		publisher.publish(new StudentIndicatedToClassRoomEvent(student.getCpf().getNumber()));
 	}
 }

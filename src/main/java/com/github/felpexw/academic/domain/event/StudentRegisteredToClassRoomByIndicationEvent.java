@@ -1,4 +1,4 @@
-package com.github.felpexw.shared.domain.event;
+package com.github.felpexw.academic.domain.event;
 
 import java.util.Map;
 
@@ -8,10 +8,10 @@ import com.github.felpexw.shared.domain.common.DomainEventType;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class StudentIndicatedToClassRoomEvent implements DomainEvent {
-
+public class StudentRegisteredToClassRoomByIndicationEvent implements DomainEvent{
+	
 	private final String cpf;
-
+	
 	@Override
 	public Map<String, String> info() {
 		return Map.of("cpf", cpf);
@@ -19,7 +19,7 @@ public class StudentIndicatedToClassRoomEvent implements DomainEvent {
 
 	@Override
 	public DomainEventType eventType() {
-		return DomainEventType.STUDENT_INDICATED_TO_CLASS_ROOM_EVENT;
+		return DomainEventType.STUDENT_REGISTERED_TO_CLASS_ROOM_BY_INDICATION_EVENT;
 	}
 
 }

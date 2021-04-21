@@ -14,7 +14,7 @@ public class StudentRegisteredToClassRoomEvent implements DomainEvent {
 	private final CPF cpf;
 
 	@Override
-	public Map<String, String> getInfo() {
+	public Map<String, String> info() {
 		return Map.of("cpf", cpf.getNumber());
 	}
 

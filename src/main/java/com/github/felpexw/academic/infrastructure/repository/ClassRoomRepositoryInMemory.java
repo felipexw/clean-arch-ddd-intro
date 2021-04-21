@@ -1,4 +1,4 @@
-package com.github.felpexw.academic.infrastructure;
+package com.github.felpexw.academic.infrastructure.repository;
 
 import java.util.HashMap;
 import java.util.Map;

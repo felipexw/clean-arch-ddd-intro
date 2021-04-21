@@ -8,12 +8,14 @@ public class GamificationStudentIndicatedToClassRoomListener extends DomainEvent
 
 	@Override
 	public void reactTo(DomainEvent evt) {
-		System.out.println("StudentIndicatedToClassRoomListener::reactTo");
+		System.out.println(String.format(
+				"\n===\n [GamificationStudentIndicatedToClassRoomListener-%s]:: Atualizando os game points na base... CPF: %s",
+				evt.when(), evt.info().get("cpf")));
 	}
 
 	@Override
 	public Boolean canRun(DomainEvent evt) {
-		return evt.eventType() == DomainEventType.STUDENT_INDICATED_TO_CLASS_ROOM_EVENT;
+		return evt.eventType() == DomainEventType.STUDENT_REGISTERED_TO_CLASS_ROOM_BY_INDICATION_EVENT;
 	}
 
 }

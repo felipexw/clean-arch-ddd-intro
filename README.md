@@ -9,11 +9,7 @@ Imagine um software em um contexto acadêmico, onde será necessário **matricul
 - **indicar alunos**: quando um aluno indica uma pessoa como possível aluno (que não está matriculada, evidentemente), o aluno que indicou acaba recebendo alguma pontuação para isso. Com uma determinada pontuação acumulada, ele pode trocar os pontos por algum curso, ou algo do semelhante. A pessoa indicada recebe um e-mail contendo as informações para se matricular na próxima turma, bem como um determinado desconto na taxa da matrícula.
 - **matricular alunos**: ao matricular um novo aluno em um curso, deve ser considerado se o que mesmo não foi indicado. Em caso positivo, o mesmo deverá receber um desconto na matricula. Do contrário, é o valor integral.
 
-![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/clear_arch.PNG)
-![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/context_mapping.PNG)
-![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/packages.PNG)
-
-## Aplicando os conceitos
+## Entendendo e aplicando os conceitos DDD
 Alguns conceitos são necessários para melhor entendimento do desenho da solução. São eles:
 
 - **Use cases/commands/queries/actions**: Representam as features identificadas na modelagem.
@@ -25,6 +21,15 @@ Alguns conceitos são necessários para melhor entendimento do desenho da soluç
 - **Business invariantes**: são regras de negócio.
 - **Actors**: são aqueles que interagem diretamente com os casos de uso (ex: `Student`).
 
+## Clean architecture
+![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/clear_arch.PNG)
+
+## Bounded contexts
+![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/context_mapping.PNG)
+
+
+## Estrutura do projeto
+![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/package.PNG)
 
 A estrutura do projeto ficou da seguinte maneira:
 ``` 

@@ -7,25 +7,33 @@ import com.github.felpexw.shared.domain.common.DomainEventListener;
 import com.github.felpexw.shared.domain.common.DomainEventPublisher;
 import com.github.felpexw.shared.domain.common.DomainEventType;
 
-import lombok.RequiredArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.extern.slf4j.Slf4j;
 
-@RequiredArgsConstructor
+@Slf4j
+@EqualsAndHashCode(of = "identification", callSuper = false)
 public class StudentRegisteredToClassRoomEventListener extends DomainEventListener {
 
 	private final StudentIndicationRepository repository;
 	private final DomainEventPublisher publisher;
+	private String identification;
+
+	public StudentRegisteredToClassRoomEventListener(StudentIndicationRepository repository,
+			DomainEventPublisher publisher) {
+		this.identification = this.identification();
+		this.repository = repository;
+		this.publisher = publisher;
+	}
 
 	@Override
-	public void reactTo(DomainEvent evt)
-	{
-		System.out.println(String.format("\n===\n [StudentRegisteredToClassRoomEventListener:%s]:: %s", evt.when(),
+	public void reactTo(DomainEvent evt) {
+		log.info(String.format("\n===\n [StudentRegisteredToClassRoomEventListener:%s]:: %s", evt.when(),
 				evt.compileInfo()));
 
 		try {
 			Thread.sleep(1250);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error(e.getMessage());
 		}
 
 		final String ID = evt.info().get("cpf");
@@ -33,6 +41,11 @@ public class StudentRegisteredToClassRoomEventListener extends DomainEventListen
 			publisher.publish(new StudentRegisteredToClassRoomByIndicationEvent(ID));
 		}
 
+	}
+
+	@Override
+	public String identification() {
+		return this.getClass().getName();
 	}
 
 	@Override

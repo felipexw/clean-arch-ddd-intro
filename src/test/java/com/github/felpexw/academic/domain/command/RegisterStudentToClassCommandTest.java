@@ -1,6 +1,5 @@
 package com.github.felpexw.academic.domain.command;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atMostOnce;
 import static org.mockito.Mockito.mockConstruction;
 import static org.mockito.Mockito.verify;

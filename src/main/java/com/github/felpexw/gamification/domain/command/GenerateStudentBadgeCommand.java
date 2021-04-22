@@ -1,16 +1,19 @@
 package com.github.felpexw.gamification.domain.command;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class GenerateStudentBadgeCommand {
 
 	public void generate() {
 		try {
 			Thread.sleep(1250);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			log.error(e.getMessage());
 			e.printStackTrace();
 		}
 
-		System.out.println("Badge generated");
+		log.info("Badge generated");
 	}
 
 }

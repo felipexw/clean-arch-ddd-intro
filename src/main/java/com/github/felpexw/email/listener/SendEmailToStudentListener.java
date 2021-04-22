@@ -4,11 +4,22 @@ import com.github.felpexw.shared.domain.common.DomainEvent;
 import com.github.felpexw.shared.domain.common.DomainEventListener;
 import com.github.felpexw.shared.domain.common.DomainEventType;
 
+import lombok.EqualsAndHashCode;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@EqualsAndHashCode(of = "identification", callSuper = false)
 public class SendEmailToStudentListener extends DomainEventListener {
+
+	private String identification;
+
+	public SendEmailToStudentListener() {
+		this.identification = identification();
+	}
 
 	@Override
 	public void reactTo(DomainEvent evt) {
-		System.out.println("\n===\n SendEmailToStudentListener:: Enviando email ....");
+		log.info("\n===\n SendEmailToStudentListener:: Enviando email ....");
 
 		try {
 			Thread.sleep(1250);
@@ -17,7 +28,12 @@ public class SendEmailToStudentListener extends DomainEventListener {
 			e.printStackTrace();
 		}
 
-		System.out.println("E-mail enviado com sucesso");
+		log.info("E-mail enviado com sucesso");
+	}
+
+	@Override
+	public String identification() {
+		return this.getClass().getName();
 	}
 
 	@Override

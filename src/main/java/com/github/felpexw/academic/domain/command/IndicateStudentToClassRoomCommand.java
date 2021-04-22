@@ -1,21 +1,27 @@
 package com.github.felpexw.academic.domain.command;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import com.github.felpexw.academic.domain.model.Student;
 import com.github.felpexw.academic.domain.repository.StudentIndicationRepository;
-import com.github.felpexw.shared.domain.common.DomainEventPublisher;
-import com.github.felpexw.shared.domain.event.StudentIndicatedToClassRoomEvent;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
+@Singleton
+@Slf4j
 public class IndicateStudentToClassRoomCommand {
 
-	private final DomainEventPublisher publisher;
+	@Inject
 	private final StudentIndicationRepository repository;;
 
 	public void indicateStudent(Student student) {
-		System.out.println(String.format("\n===\n [IndicateStudentToClassRoomCommand]::Indicando aluno..."));
+		log.info("Indicating student " + student.getCpf().getNumber());
+
 		repository.indicate(student);
-		publisher.publish(new StudentIndicatedToClassRoomEvent(student.getCpf().getNumber()));
+
+		log.info("Student " + student.getCpf().getNumber() + " indicated.");
 	}
 }

@@ -6,6 +6,8 @@ public abstract class DomainEventListener {
 
 	public abstract Boolean canRun(DomainEvent evt);
 
+	public abstract String identification();
+
 	public void run(DomainEvent evt) {
 		if (canRun(evt))
 			reactTo(evt);

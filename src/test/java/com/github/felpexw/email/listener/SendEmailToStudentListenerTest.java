@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.github.felpexw.academic.domain.event.StudentRegisteredToClassRoomByIndicationEvent;
 import com.github.felpexw.academic.shared.BaseTest;
+import com.github.felpexw.email.domain.listener.SendEmailToStudentListener;
 import com.github.felpexw.shared.domain.event.StudentIndicatedToClassRoomEvent;
 
 @DisplayName("[EMAIL] Send email to someone event listener")

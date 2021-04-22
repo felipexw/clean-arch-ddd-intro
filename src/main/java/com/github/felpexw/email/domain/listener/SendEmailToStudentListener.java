@@ -1,4 +1,4 @@
-package com.github.felpexw.email.listener;
+package com.github.felpexw.email.domain.listener;
 
 import com.github.felpexw.shared.domain.common.DomainEvent;
 import com.github.felpexw.shared.domain.common.DomainEventListener;

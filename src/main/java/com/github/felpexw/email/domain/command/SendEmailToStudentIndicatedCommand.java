@@ -1,4 +1,4 @@
-package com.github.felpexw.email.comand;
+package com.github.felpexw.email.domain.command;
 
 import lombok.extern.slf4j.Slf4j;
 

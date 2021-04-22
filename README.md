@@ -27,9 +27,8 @@ Alguns conceitos são necessários para melhor entendimento do desenho da soluç
 ## Bounded contexts
 ![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/context_mapping.PNG)
 
-
 ## Estrutura do projeto
-![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/package.PNG)
+![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/packages.PNG)
 
 A estrutura do projeto ficou da seguinte maneira:
 ``` 

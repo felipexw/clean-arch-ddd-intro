@@ -24,10 +24,9 @@ Alguns conceitos são necessários para melhor entendimento do desenho da soluç
 ## Clean architecture
 ![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/clear_arch.PNG)
 
-## Bounded contexts
-![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/context_mapping.PNG)
-
 ## Estrutura do projeto
+![alt](https://github.com/felipexw/clean-arch-ddd-intro/blob/master/docs/packages.PNG)
+
 A estrutura do projeto ficou da seguinte maneira:
 ``` 
    /academic
